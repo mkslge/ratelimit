@@ -20,4 +20,4 @@ jobs:
     - name: Build
       run: cmake --build cmake-build-debug
     - name: Test
-      run: cmake ./allTests
+      run: ctest --test-dir cmake-build-debug --output-on-failure
