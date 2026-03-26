@@ -4,7 +4,7 @@
 
 #ifndef LEAKYBUCKET_H
 #define LEAKYBUCKET_H
-
+#include "RateLimiter.h"
 
 
 class LeakyBucket {

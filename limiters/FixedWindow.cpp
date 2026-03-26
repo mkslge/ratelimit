@@ -18,10 +18,13 @@ bool FixedWindow::make_request(ID id, double cost) {
 
     }
     double requests_sent = clients[id].get()->requests;
+    if (requests_sent + cost > rate_per_second_) {
+        return false;
+    } else {
+        requests_sent += cost;
+        return true;
+    }
 
-
-
-    return false;
 }
 
 
