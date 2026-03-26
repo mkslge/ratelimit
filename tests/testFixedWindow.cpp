@@ -16,7 +16,7 @@ TEST(FixedWindowTests, testBasicAlwaysFalse) {
 TEST(FixedWindowTests, testBasicAlwaysTrue) {
     FixedWindow fw{1,1};
     for (int i = 0; i < 500;i++) {
-        EXPECT_TRUE(fw.make_request(1));
+        EXPECT_TRUE(fw.make_request(i));
     }
 
 }
@@ -29,7 +29,7 @@ TEST(FixedWindowTests, testOverflow) {
             one_request_failed = true;
         }
     }
-    EXPECT_FALSE(one_request_failed);
+    EXPECT_TRUE(one_request_failed);
 }
 
 TEST(FixedWindowTests, onlyNewIDs) {
