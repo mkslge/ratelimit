@@ -29,18 +29,10 @@ add_library(RATE_LIMIT_CORE STATIC
         limiters/SlidingWindow.cpp
         limiters/TokenBucket.cpp
         limiters/LeakyBucket.cpp
+
 )
 
-
-
-
-
-
-
-
-#add_executable(allTests tests/tests.cpp)
-#target_link_libraries(allTests PUBLIC gtest_main)
-#target_link_libraries(allTests PUBLIC ALL_TESTS)
+#EXECUTABLES -------------------------------------------------
 
 add_executable(ratelimiter main.cpp)
 target_link_libraries(ratelimiter PRIVATE RATE_LIMIT_CORE)
@@ -48,10 +40,15 @@ target_link_libraries(ratelimiter PRIVATE RATE_LIMIT_CORE)
 add_executable(testFixedWindow tests/testFixedWindow.cpp)
 target_link_libraries(testFixedWindow PRIVATE RATE_LIMIT_CORE gtest_main)
 
+add_executable(testSlidingWindow tests/testSlidingWindow.cpp)
+target_link_libraries(testSlidingWindow PRIVATE RATE_LIMIT_CORE gtest_main)
+
+
 add_executable(allTests tests/tests.cpp)
 target_link_libraries(allTests PRIVATE RATE_LIMIT_CORE gtest_main)
 
 
 gtest_discover_tests(testFixedWindow)
+gtest_discover_tests(testSlidingWindow)
 gtest_discover_tests(allTests)
 

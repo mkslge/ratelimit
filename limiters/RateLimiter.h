@@ -7,7 +7,7 @@
 
 #include <unordered_map>
 #include <memory>
-#include "../ClientInfo.h"
+#include "../clients/Client.h"
 
 
 using ID = int;
@@ -15,7 +15,7 @@ using ID = int;
 class RateLimiter {
 protected:
     double rate_per_second_{};
-    std::unordered_map<ID, std::unique_ptr<ClientInfo>> clients;
+    std::unordered_map<ID, std::unique_ptr<Client>> clients;
 
 public:
     RateLimiter() = default;
