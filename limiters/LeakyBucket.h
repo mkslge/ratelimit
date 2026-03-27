@@ -8,6 +8,7 @@
 #include "RateLimiter.h"
 #include <queue>
 #include <thread>
+#include <condition_variable>
 
 using QRequest = int;
 
