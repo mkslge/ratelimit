@@ -19,7 +19,7 @@ bool SlidingWindow::make_request(ID id, double cost) {
 
     //while client info dequeue old requests not in window, remove them, decrement cost
     double curr_timestamp = timeUtil::curr_time();
-    while (!window.empty() && window.front().time < curr_timestamp - static_cast<long long>(window_length_)) {
+    while (!window.empty() && window.front().time < curr_timestamp - window_length_) {
         Request to_remove = window.front();
         window.pop_front();
         client->sub_window_sum(to_remove.cost);
