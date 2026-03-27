@@ -43,6 +43,9 @@ target_link_libraries(testFixedWindow PRIVATE RATE_LIMIT_CORE gtest_main)
 add_executable(testSlidingWindow tests/testSlidingWindow.cpp)
 target_link_libraries(testSlidingWindow PRIVATE RATE_LIMIT_CORE gtest_main)
 
+add_executable(testLeakyBucket tests/testLeakyBucket.cpp)
+target_link_libraries(testLeakyBucket PRIVATE RATE_LIMIT_CORE gtest_main)
+
 
 add_executable(allTests tests/tests.cpp)
 target_link_libraries(allTests PRIVATE RATE_LIMIT_CORE gtest_main)
@@ -50,5 +53,6 @@ target_link_libraries(allTests PRIVATE RATE_LIMIT_CORE gtest_main)
 
 gtest_discover_tests(testFixedWindow)
 gtest_discover_tests(testSlidingWindow)
+gtest_discover_tests(testLeakyBucket)
 gtest_discover_tests(allTests)
 
