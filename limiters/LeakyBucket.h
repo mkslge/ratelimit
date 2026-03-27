@@ -8,12 +8,13 @@
 #include "RateLimiter.h"
 #include <queue>
 #include <thread>
+#include <condition_variable>
 
-using Request = int;
+using QRequest = int;
 
 class LeakyBucket : public RateLimiter {
 private:
-    std::queue<Request> msg_queue_;
+    std::queue<QRequest> msg_queue_;
     std::mutex mut_;
     bool shutdown_;
     int ms_rate_;
